@@ -2,7 +2,7 @@
 <html>
 <head>
     <title></title>
-	<meta charset="utf-8" />
+    <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
@@ -149,7 +149,9 @@
         a:focus {
             outline: 0;
         }
-
+        a {
+            font-size:16px;
+        }
         input, select {
             border: 1px solid #605e5c;
         }
@@ -188,15 +190,31 @@
             margin: 0 auto;
         }
 
-        .col-lg-6 {
-            max-width: 470px;
+        .col-lg-10 {
+            max-width: 1000px;
             width: 100%;
             float: none;
             display: inline-block;
             vertical-align: top;
             padding: 0;
         }
-
+        .col-lg-8 {
+            /*max-width: 800px;*/
+            width: 80%;
+            float: left;
+            display: inline-block;
+            vertical-align: top;
+            padding: 0;
+        }
+         .col-lg-2 {
+            /*max-width: 200px;*/
+            width: 20%;
+            float: left;
+            display: inline-block;
+            vertical-align: top;
+            margin-top:12px;
+            padding: 0;
+        }
         .row {
             width: 100%;
             margin: 0;
@@ -885,16 +903,17 @@
                     margin-bottom: 45px;
                 }
 
-                .unified_container .row .panel-default .panel-body .companyLogo {
+                /*.unified_container .row .panel-default .panel-body .companyLogo {
                     display: block;
-                }
+                }*/
 
                 .unified_container .row .panel-default .panel-body img {
                     max-width: 100%;
                     width: auto;
-                    height: 70px;
-                    margin: 0 auto;
-                    display: block;
+                    height: 100px;
+                    margin: 0;
+                    display: inline-block;
+                    float:left;
                 }
 
                 .unified_container .row .panel-default .panel-body h3 {
@@ -967,7 +986,7 @@
                             -ms-user-select: none;
                             -webkit-user-select: none;
                             color: #fff;
-                            width: 63%;
+                            width: 25%;
                             box-shadow: 0 0 30px 0 #dae1f7;
                         }
 
@@ -990,8 +1009,8 @@
         }
 
         .unified_container .row .panel-default #api .localAccount .entry .entry-item {
-            position: relative;
-            width: 100%;
+            /*position: relative;*/
+            /*width: 100%;*/
             padding-top: 6px;
             padding-bottom: 6px;
             display: block;
@@ -1145,9 +1164,9 @@
                         display: none;
                     }
 
-                    .unified_container .row .panel-default .panel-body .companyLogo {
+                    /*.unified_container .row .panel-default .panel-body .companyLogo {
                         display: block;
-                    }
+                    }*/
 
                     .unified_container .row .panel-default .panel-body h3 {
                         display: block;
@@ -1228,15 +1247,17 @@
 </head>
 <body>
     <div id="background_branding_container" data-tenant-branding-background-color="true">
-        <img data-tenant-branding-background="true" src="https://conntimeoutgmailb2c.b2clogin.com/static/tenant/templates/backgrounds/1-1.png" alt="Illustration" />
+        <img data-tenant-branding-background="true" src="https://conntimeoutgmailb2c.b2clogin.com/static/tenant/templates/backgrounds/1-1.png" alt="Illustration" />     
     </div>
     <p id="screen_reader_msg" role="alert" aria-label="Page has been loaded successfully"></p>
     <div class="container  unified_container " role="presentation">
         <div class="row">
-            <div class="col-lg-6">
+            <div class="col-lg-10">
                 <div class="panel panel-default">
-                    <div class="panel-body">
-                        <img class="companyLogo" data-tenant-branding-logo="true"  src="imgs/logo01.jpg" alt="Company Logo"/>
+                    <div class="panel-body" style="max-width:none">
+                        <img class="companyLogo" data-tenant-branding-logo="true" src="imgs/logo05.png" alt="Company Logo" />
+                        <br /><br />
+                        <h2 style="display:inline-block;font-size:24px;margin:0;float:left">Online Programme Registration System</h2>
                         <div id="api">
                             <div class="claims-provider-list-buttons social" aria-label="Sign in with your social account" role="form">
                                 <div class="intro">
@@ -1256,34 +1277,43 @@
                             <form id="localAccountForm" action="JavaScript:void(0);" class="localAccount" aria-label="Sign in with your username">
                                 <div class="intro">
                                     <h2>
-                                        Sign in with your username
+                                        <b>Note</b>:<span style="font-size:14px">Please note that the login ID for parents has been changed in view of data protection policy wef September 2019. A letter containing the new login ID has been sent to all parents. Please use the login ID that has been assigned to you. For first time login, click ‘Forgot Password/First-time Login’ to set your password.</span> <br/><br />
+                                        Please enter your information to login.
                                     </h2>
                                 </div>
                                 <div class="error pageLevel" aria-hidden="true" role="alert" style="display: none;">
                                     <p></p>
                                 </div>
                                 <div class="entry">
-                                    <div class="entry-item">
-                                        <label for="UserId">
-                                            Username
-                                        </label>
-                                        <div class="error itemLevel" aria-hidden="true" role="alert" style="display: none;">
-                                            <p></p>
+                                    <div>
+                                        <div class="entry-item col-lg-8">
+                                            <label for="UserId">
+                                                Username
+                                            </label>
+                                            <div class="error itemLevel" aria-hidden="true" role="alert" style="display: none;">
+                                                <p></p>
+                                            </div>
+                                            <input type="text" id="UserId" name="Username" pattern="^[a-zA-Z0-9]+[a-zA-Z0-9_-]*$" placeholder="Username" value="">
                                         </div>
-                                        <input type="text" id="UserId" name="Username" pattern="^[a-zA-Z0-9]+[a-zA-Z0-9_-]*$" placeholder="Username" value="">
+                                        <div class="col-lg-2">
+                                            <a id="forgotLoginID" href="http://localhost/OPRS.Web/FormAuth/ForgotLoginId">Forgot Login ID?</a>
+                                        </div>
                                     </div>
-                                    <div class="entry-item">
-                                        <div class="password-label">
-                                            <label for="password">Password</label>
-                                            <a id="forgotPassword" href="https://oprs.mendaki.org.sg/FormAuth/ForgotPassword">Forgot your password?</a>
+                                    <div>
+                                        <div class="entry-item col-lg-8">
+                                            <div class="password-label">
+                                                <label for="password">Password</label>                                              
+                                            </div>
+                                            <div class="error itemLevel" aria-hidden="true" style="display: none;">
+                                                <p role="alert"></p>
+                                            </div>
+                                            <input type="password" id="password" name="Password" placeholder="Password">
                                         </div>
-                                        <div class="error itemLevel" aria-hidden="true" style="display: none;">
-                                            <p role="alert"></p>
+                                        <div class="col-lg-2">
+                                            <a id="forgotPassword" href="http://localhost/OPRS.Web/FormAuth/ForgotPassword">Forgot Password/First-time Login</a>
                                         </div>
-                                        <input type="password" id="password" name="Password" placeholder="Password">
                                     </div>
                                     <div class="working"></div>
-
 
                                     <div class="buttons">
                                         <button id="next" type="submit" form="localAccountForm">Sign in</button>
@@ -1298,12 +1328,6 @@
     </div>
 </body>
 </html>
-<script>
-	$(function(){
-		console.log( "ready!" );
-		$("#forgotPassword").attr("href","https://oprs.mendaki.org.sg/FormAuth/ForgotPassword");
-		//$("#localAccountForm h2").text("Sign in");
-		//$("#localAccountForm h2").html("<div>Sign in (<a onclick=javascript:$('#customazureadhookprovider').click()>Staff Click)</a></div>");
-		$("div.create").html("<p><b>Mendaki Staff?</b> <a onclick=javascript:$('#MendakiAD').click()>Sign in here</a></p>");
-	})
+<script type="text/javascript">
+
 </script>
