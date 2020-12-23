@@ -7,17 +7,8 @@
     <title>Login - OPRS</title>
     <link href="https://uat-oprs.mendaki.org.sg/Content/css?v=uY4PQQud-l_TlGNos0lweK2y26d7zfT7DXOj2h3AWOY1" rel="stylesheet">
 
-
-    <!--[if IE]>
-    <link rel="stylesheet" href="/Content/ie.css" />
-    <script src="/Scripts/General/html5.js"></script>
-
-    <![endif]-->
-
     <link rel="stylesheet" href="https://uat-oprs.mendaki.org.sg/Content/themes/base/minified/jquery-ui.min.css">
     <link href="https://uat-oprs.mendaki.org.sg/Content/general/css?v=ZDLoHoYo0RYv7-orUzoKRV18OEUAMCFf0TsRWSlSiDA1" rel="stylesheet">
-
-
 
     <link rel="stylesheet" href="https://uat-oprs.mendaki.org.sg/Content/style.css?v=20201223">
     <link rel="stylesheet" href="https://uat-oprs.mendaki.org.sg/Content/pop.css?v=20201223">
@@ -46,7 +37,6 @@
             <h1 class="logo-text"></h1>
             <ul class="menu">
                 <li>
-
 
                     <a class="login" href="https://uat-oprs.mendaki.org.sg/FormAuth/Login">
                         <i class="iconfont">ဂ</i>
@@ -112,7 +102,6 @@
     $(document).ready(function () {
         if (window.location.href.indexOf("https://uat-oprs.mendaki.org.sg/Registration/Tutor") > 0)
 		{
-//			HandleSessionTimeout("Registration is closed","/")
 		}
     });
         </script>
@@ -276,15 +265,10 @@
 
     <script src="https://uat-oprs.mendaki.org.sg/bundles/General?v=BjSuDlKA179-urKjOQ8IiV4lmmDGmONavqQ8472iROU1"></script>
 
-
-
-
-
-
     <script type="text/javascript">
              $(function () {
                  if ($("#first").val() == "True") {
-                     //$('#firstTimeError').append('This is your first time login, please click <a onclick="setPassword()" style="color: blue">here</a> to change your password.');
+                   
                  } else {
                      $('#firstTimeError').empty();
                  }
@@ -485,19 +469,10 @@
             $("input[type=text]:disabled").attr("readonly","readonly").removeAttr("disabled");
             if($("#NricBc").length)
             {
-                //if(!$("#NricBc").prop('disabled')&&$("#NricBc").prop('readonly'))
-                //{
-                //    $("#NricBc").attr("disabled","disabled");
-                //}
-
                 if($("#NricBc").prop('readonly'))
                 {
                     removeNRICValidation();
                 }
-                //if($("#NricBc").prop('disabled'))
-                //{
-                //    removeNRICValidation()
-                //}
             }
         });
 
@@ -516,8 +491,6 @@
         })
 
     </script>
-
-
 
 </body>
 </html>
