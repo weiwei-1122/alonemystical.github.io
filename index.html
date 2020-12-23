@@ -14,6 +14,10 @@
     <link rel="stylesheet" href="https://uat-oprs.mendaki.org.sg/Content/pop.css?v=20201223">
 
     <style>
+        #api .entry .entry-item {
+           margin-top:5px;
+           margin-bottom:5px;
+        }
         #api .entry .entry-item input {
                 outline: 0;
                 background-color: #fff !important;
@@ -402,8 +406,9 @@
             $("#api .intro").html("<p class='note'><b>Please enter your information to login.</b></p>");
             $("#api .claims-provider-list-buttons").hide();
             $("#api .divider").hide();
-            $("#api #forgotPassword").attr("href", "localhost/OPRS.Web/FormAuth/ForgotPassword");
+            $("#api #forgotPassword").attr("href", "https://localhost/OPRS.Web/FormAuth/ForgotPassword");
             $("#api #forgotPassword").css("color", "blue");
+            $($("#api .entry-item")[0]).find("label").html('Username <a id="forgotLoginID" href="https://localhost/OPRS.Web/FormAuth/ForgotLoginId" style="color: blue;">Forgot Login ID?</a>');
             //setup grid height style
             $('.ui-jqgrid-bdiv').css('height','');
         });
