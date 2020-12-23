@@ -22,7 +22,6 @@
                 color: #555;
                 display: inline-block;
                 font-size: 1em;
-                height: 50px;
                 line-height: 1.42857143;
                 padding: 6px 20px;
                 transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s !important;
@@ -397,9 +396,12 @@
             //UPDATE Azure Login Html
             $("#api #next").attr("class", "u-btn");
             $("#api #next").css("float", "left");
-            $("#api .intro").css("margin-left", "0px");        
-            $("#api .intro").text("<p class='note'><b>Please enter your information to login.</b></p>");
-
+            $("#api .intro").css("margin-left", "0px");
+            $("#api .intro").css("padding", "0px");
+            
+            $("#api .intro").html("<p class='note'><b>Please enter your information to login.</b></p>");
+            $("#api .claims-provider-list-buttons").hide();
+            $("#api .divider").hide();
             $("#api #forgotPassword").attr("href", "localhost/OPRS.Web/FormAuth/ForgotPassword");
             $("#api #forgotPassword").css("color", "blue");
             //setup grid height style
