@@ -1,1338 +1,523 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
-    <title></title>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-    <style id="common">
-        @font-face {
-            font-family: 'SegoeUI';
-            src: url(https://conntimeoutgmailb2c.b2clogin.com/static/tenant/templates/fonts/segoeui.WOFF);
-            font-weight: normal;
-        }
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - OPRS</title>
+    <link href="https://uat-oprs.mendaki.org.sg/Content/css?v=uY4PQQud-l_TlGNos0lweK2y26d7zfT7DXOj2h3AWOY1" rel="stylesheet">
 
-        @font-face {
-            font-family: 'SegoeUI';
-            src: url(https://conntimeoutgmailb2c.b2clogin.com/static/tenant/templates/fonts/segoeui_bold.WOFF);
-            font-weight: bold;
-        }
 
-        #AmazonExchange {
-            background-image: url(https://conntimeoutgmailb2c.b2clogin.com/static/tenant/templates/idp_logos/colored/amazon.svg);
-        }
+    <!--[if IE]>
+    <link rel="stylesheet" href="/Content/ie.css" />
+    <script src="/Scripts/General/html5.js"></script>
 
-            #AmazonExchange:hover {
-                background-image: url(https://conntimeoutgmailb2c.b2clogin.com/static/tenant/templates/idp_logos/white/amazon.svg);
-            }
+    <![endif]-->
 
-        #FacebookExchange {
-            background-image: url(https://conntimeoutgmailb2c.b2clogin.com/static/tenant/templates/idp_logos/colored/facebook.svg);
-        }
+    <link rel="stylesheet" href="https://uat-oprs.mendaki.org.sg/Content/themes/base/minified/jquery-ui.min.css">
+    <link href="https://uat-oprs.mendaki.org.sg/Content/general/css?v=ZDLoHoYo0RYv7-orUzoKRV18OEUAMCFf0TsRWSlSiDA1" rel="stylesheet">
 
-            #FacebookExchange:hover {
-                background-image: url(https://conntimeoutgmailb2c.b2clogin.com/static/tenant/templates/idp_logos/white/facebook.svg);
-            }
 
-        #GitHubExchange {
-            background-image: url(https://conntimeoutgmailb2c.b2clogin.com/static/tenant/templates/idp_logos/colored/github.svg);
-        }
 
-            #GitHubExchange:hover {
-                background-image: url(https://conntimeoutgmailb2c.b2clogin.com/static/tenant/templates/idp_logos/white/github.svg);
-            }
+    <link rel="stylesheet" href="https://uat-oprs.mendaki.org.sg/Content/style.css?v=20201223">
+    <link rel="stylesheet" href="https://uat-oprs.mendaki.org.sg/Content/pop.css?v=20201223">
 
-        #AppleExchange {
-            background-image: url(https://conntimeoutgmailb2c.b2clogin.com/static/tenant/templates/idp_logos/colored/apple.svg);
-        }
+    <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script>
+    <script src="https://uat-oprs.mendaki.org.sg/Scripts/Jquery.min/jquery-1.10.2.min.js"></script>
 
-            #AppleExchange:hover {
-                background-image: url(https://conntimeoutgmailb2c.b2clogin.com/static/tenant/templates/idp_logos/white/apple.svg);
-            }
+    <script src="https://uat-oprs.mendaki.org.sg/bundles/tab-menu?v=cklqi_RbusZqjCyZo86wfv-1IDHyvIsWcnu7GQw73YM1"></script>
 
-        #GoogleExchange {
-            background-image: url(https://conntimeoutgmailb2c.b2clogin.com/static/tenant/templates/idp_logos/colored/google.svg);
-        }
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-132695664-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
 
-            #GoogleExchange:hover {
-                background-image: url(https://conntimeoutgmailb2c.b2clogin.com/static/tenant/templates/idp_logos/white/google.svg);
-            }
-
-        #LinkedInExchange {
-            background-image: url(https://conntimeoutgmailb2c.b2clogin.com/static/tenant/templates/idp_logos/colored/linkedin.svg);
-        }
-
-            #LinkedInExchange:hover {
-                background-image: url(https://conntimeoutgmailb2c.b2clogin.com/static/tenant/templates/idp_logos/white/linkedin.svg);
-            }
-
-        #MicrosoftAccountExchange {
-            background-image: url(https://conntimeoutgmailb2c.b2clogin.com/static/tenant/templates/idp_logos/colored/microsoft.svg);
-        }
-
-            #MicrosoftAccountExchange:hover {
-                background-image: url(https://conntimeoutgmailb2c.b2clogin.com/static/tenant/templates/idp_logos/white/microsoft.svg);
-            }
-
-        #QQExchange {
-            background-image: url(https://conntimeoutgmailb2c.b2clogin.com/static/tenant/templates/idp_logos/colored/qq.svg);
-        }
-
-            #QQExchange:hover {
-                background-image: url(https://conntimeoutgmailb2c.b2clogin.com/static/tenant/templates/idp_logos/white/qq.svg);
-            }
-
-        #TwitterExchange {
-            background-image: url(https://conntimeoutgmailb2c.b2clogin.com/static/tenant/templates/idp_logos/colored/twitter.svg);
-        }
-
-            #TwitterExchange:hover {
-                background-image: url(https://conntimeoutgmailb2c.b2clogin.com/static/tenant/templates/idp_logos/white/twitter.svg);
-            }
-
-        #WeChatExchange {
-            background-image: url(https://conntimeoutgmailb2c.b2clogin.com/static/tenant/templates/idp_logos/colored/wechat.svg);
-        }
-
-            #WeChatExchange:hover {
-                background-image: url(https://conntimeoutgmailb2c.b2clogin.com/static/tenant/templates/idp_logos/white/wechat.svg);
-            }
-
-        #WeiboExchange {
-            background-image: url(https://conntimeoutgmailb2c.b2clogin.com/static/tenant/templates/idp_logos/colored/weibo.svg);
-        }
-
-            #WeiboExchange:hover {
-                background-image: url(https://conntimeoutgmailb2c.b2clogin.com/static/tenant/templates/idp_logos/white/weibo.svg);
-            }
-
-        .buttons #cancel:before {
-            content: url(https://conntimeoutgmailb2c.b2clogin.com/static/tenant/templates/images/left-arrow.svg);
-        }
-
-        .claims-provider-list-buttons.social {
-            visibility: hidden;
-        }
-    </style>
-    <style id="idpselector">
-        #SignInWithLogonNameExchange, #SignUpWithLogonEmailExchange, #SignUpWithLogonNameExchange {
-            background-image: url(https://conntimeoutgmailb2c.b2clogin.com/static/tenant/templates/idp_logos/colored/local.svg);
-        }
-
-            #SignInWithLogonNameExchange:hover, #SignUpWithLogonEmailExchange:hover, #SignUpWithLogonNameExchange:hover {
-                background-image: url(https://conntimeoutgmailb2c.b2clogin.com/static/tenant/templates/idp_logos/white/local.svg);
-            }
-    </style>
-
-    <style>
-        /* Following are generated styles via gulp. */
-        /* inject: css */
-        html {
-            background: 0 0;
-        }
-
-        body {
-            font-family: Segoe UI,SegoeUI,"Helvetica Neue",Helvetica,Arial,sans-serif;
-            background-attachment: fixed;
-            background-color: #fff;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
-            text-align: left;
-        }
-
-        p {
-            margin: 0;
-        }
-
-        a:focus {
-            outline: 0;
-        }
-
-        a {
-            font-size: 16px;
-        }
-
-        input, select {
-            border: 1px solid #605e5c;
-        }
-
-            input::placeholder {
-                color: #6a6a6a;
-            }
-
-        img[data-tenant-branding-background=true] {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            z-index: 0;
-            position: fixed;
-            left: 0;
-            overflow: hidden;
-            top: 0;
-        }
-
-        div[data-tenant-branding-background-color=true] {
-            width: 100%;
-            height: 100%;
-            position: fixed;
-            z-index: 0;
-        }
-
-        .container {
-            text-align: center;
-            width: 100%;
-            display: table;
-            height: 100vh;
-            padding: 0;
-        }
-
-        #api {
-            margin: 0 auto;
-        }
-
-        .col-lg-10 {
-            max-width: 1000px;
-            width: 100%;
-            float: none;
-            display: inline-block;
-            vertical-align: top;
-            padding: 0;
-        }
-
-        .col-lg-8 {
-            /*max-width: 800px;*/
-            width: 80%;
-            float: left;
-            display: inline-block;
-            vertical-align: top;
-            padding: 0;
-        }
-
-        .col-lg-2 {
-            /*max-width: 200px;*/
-            width: 20%;
-            float: left;
-            display: inline-block;
-            vertical-align: top;
-            margin-top: 12px;
-            padding: 0;
-        }
-
-        .row {
-            width: 100%;
-            margin: 0;
-            display: table-cell;
-            vertical-align: middle;
-        }
-
-        ul {
-            padding: 0;
-        }
-
-        #simplemodal-container .simplemodal-data {
-            padding: 5px 8px;
-            overflow: hidden;
-            background-color: #fff;
-            border-radius: 3px;
-            font-style: italic;
-        }
-
-        #SignInWithLogonNameExchange {
-            background-color: #296ec6;
-            background-image: url(none);
-            background-size: 10%;
-            background-position-x: 95%;
-            background-position-y: 50%;
-            background-repeat: no-repeat;
-            border-radius: .5rem;
-            width: 100%;
-            width: 100%;
-            font-size: 1em;
-            margin-left: auto;
-        }
-
-            #SignInWithLogonNameExchange:hover {
-                background-color: #1662c7;
-            }
-
-        #AmazonExchange:hover {
-            background-color: #36474f !important;
-        }
-
-        #FacebookExchange:hover {
-            background-color: #3b5595 !important;
-        }
-
-        #GitHubExchange:hover {
-            background-color: #0f0f0f !important;
-        }
-
-        #AppleExchange:hover {
-            background-color: #0f0f0f !important;
-        }
-
-        #GoogleExchange:hover {
-            background-color: #c64a29 !important;
-        }
-
-        #LinkedInExchange:hover {
-            background-color: #0274b3 !important;
-        }
-
-        #MicrosoftAccountExchange:hover {
-            background-color: #01a4ef !important;
-        }
-
-        #QQExchange:hover {
-            background-color: #1a97df !important;
-        }
-
-        #TwitterExchange:hover {
-            background-color: #1da1f2 !important;
-        }
-
-        #WeChatExchange:hover {
-            background-color: #4cc522 !important;
-        }
-
-        #WeiboExchange:hover {
-            background-color: #e81123 !important;
-        }
-
-        .buttons #continue:disabled {
-            margin: 0 auto;
-            width: 60%;
-            height: 50px;
-            background-color: #296ec6;
-            opacity: .3;
-            border-radius: .5rem;
-            border: none;
-            color: #fff;
-            font-size: 1em;
-        }
-
-        .buttons #continue {
-            margin: 0 auto;
-            width: 60%;
-            height: 50px;
-            background-color: #296ec6;
-            opacity: 1;
-            border-radius: .5rem;
-            border: none;
-            color: #fff;
-            font-size: 1em;
-            box-shadow: 0 0 30px 0 #dae1f7;
-        }
-
-            .buttons #continue:hover {
-                -moz-box-shadow: none;
-                -webkit-box-shadow: none;
-                box-shadow: none;
-                background-color: #1662c7;
-                border-color: #204d74;
-            }
-
-        .buttons #cancel {
-            padding: 0;
-            margin-left: auto;
-            background: 0 0;
-            border: 0;
-            width: inherit;
-            position: absolute;
-            background-color: transparent;
-            top: 2px;
-            left: 15px;
-            font-size: 1em;
-            color: #505050;
-            box-shadow: none;
-            text-align: left;
-        }
-
-            .buttons #cancel:hover {
-                color: #000 !important;
-            }
-
-            .buttons #cancel:before {
-                padding: 10px;
-                vertical-align: sub;
-                zoom: 90%;
-                display: inline-block;
-            }
-
-        #attributeList ul {
-            padding: 0;
-        }
-
-            #attributeList ul li {
-                list-style: none;
-                margin: 1rem 0;
-            }
-
-        label {
-            font-weight: 600;
-        }
-
-        #attributeList ul li label {
-            display: block;
-            text-align: left;
-            float: none;
-        }
-
-        #attributeList ul li.EmailBox label, #attributeList ul li.Password label, #attributeList ul li.TextBox label {
-            display: none !important;
-        }
-
-        #attributeList ul li label[for=country] {
-            float: left;
-            display: inline-block !important;
-            margin-bottom: .5rem;
-        }
-
-        #attributeList ul li label[for=cpiminternal_legalCountry] {
-            float: none;
-            display: block !important;
-            text-align: left;
-            margin-bottom: .5rem;
-        }
-
-        #attributeList ul li label[for=cpiminternal_dateOfBirth] {
-            float: none;
-            text-align: left;
-            display: block !important;
-            margin-bottom: .5rem;
-        }
-
-        #attributeList ul li input {
-            height: 50px;
-            width: 70%;
-            border-radius: .5rem;
-            text-indent: 20px;
-        }
-
-            #attributeList ul li input::-webkit-input-placeholder {
-                text-indent: 20px;
-            }
-
-        #attributeList ul li .attrEntry.validate input.invalid, #attributeList ul li .attrEntry.validate input:invalid {
-            border: 1px solid #b00;
-        }
-
-        #attributeList ul li .attrEntry .verify {
-            margin-top: 2rem;
-            padding-bottom: 10px;
-            position: relative;
-        }
-
-        #attributeList ul li .attrEntry .verificationControlContent .buttons {
-            margin-top: 2rem;
-            padding-bottom: 10px;
-            position: relative;
-        }
-
-        #attributeList ul li .attrEntry .verify .sendButton[id$=ver_but_send] {
-            width: 60%;
-            height: 50px;
-            background-color: #296ec6;
-            color: #fff;
-            border-radius: .5rem;
-        }
-
-        #attributeList ul li .attrEntry .verificationControlContent .sendCode {
-            width: 60%;
-            height: 50px;
-            background-color: #296ec6;
-            color: #fff;
-            border-radius: .5rem;
-        }
-
-        #attributeList ul li .attrEntry .verify .sendButton[id$=ver_but_send]:hover {
-            background-color: #1662c7;
-        }
-
-        #attributeList ul li .attrEntry .verificationControlContent .sendCode:hover {
-            background-color: #1662c7;
-        }
-
-        @media screen and (-ms-high-contrast:active) {
-            #attributeList ul li .attrEntry .verify button, .buttons #continue {
-                border: 1px dashed #fff !important;
-            }
-
-                #attributeList ul li .attrEntry .verify button:hover, .buttons #continue:hover {
-                    border: 1px solid #fff !important;
-                }
-        }
-
-        #attributeList ul li .attrEntry .verify .verifyButton {
-            width: inherit;
-            padding: 0 20px;
-            height: 50px;
-            background-color: #296ec6;
-            color: #fff;
-            margin-right: 5px;
-            border-radius: .5rem;
-        }
-
-        #attributeList ul li .attrEntry .verificationControlContent .verifyCode {
-            width: inherit;
-            padding: 0 20px;
-            height: 50px;
-            background-color: #296ec6;
-            color: #fff;
-            margin-right: 5px;
-            border-radius: .5rem;
-        }
-
-        #attributeList ul li .attrEntry .verify .verifyButton:hover {
-            background-color: #1662c7;
-        }
-
-        #attributeList ul li .attrEntry .verificationControlContent .verifyCode:hover {
-            background-color: #1662c7;
-        }
-
-        #attributeList ul li .attrEntry .verify .sendButton[id$=ver_but_resend] {
-            width: inherit;
-            padding: 0 20px;
-            border: 0;
-            font-size: 1em;
-            height: 50px;
-            right: 0;
-            bottom: -38px;
-            background-color: #296ec6;
-            color: #fff;
-            border-radius: .5rem;
-        }
-
-        #attributeList ul li .attrEntry .verificationControlContent .sendNewCode {
-            width: inherit;
-            padding: 0 20px;
-            border: 0;
-            font-size: 1em;
-            height: 50px;
-            right: 0;
-            bottom: -38px;
-            background-color: #296ec6;
-            color: #fff;
-            border-radius: .5rem;
-        }
-
-        #attributeList ul li .attrEntry .verify .sendButton[id$=ver_but_resend]:hover {
-            background-color: #1662c7;
-        }
-
-        #attributeList ul li .attrEntry .verificationControlContent .sendNewCode:hover {
-            background-color: #1662c7;
-        }
-
-        #attributeList ul li .attrEntry .verify .editButton {
-            border: none;
-            color: #fff;
-            background-color: #296ec6;
-            width: 60%;
-            height: 50px;
-            border-radius: .5rem;
-        }
-
-        #attributeList ul li .attrEntry .verificationControlContent .changeClaims {
-            border: none;
-            color: #fff;
-            background-color: #296ec6;
-            width: 60%;
-            height: 50px;
-            border-radius: .5rem;
-        }
-
-        #attributeList ul li .attrEntry .verify .editButton:hover {
-            background-color: #1662c7;
-        }
-
-        #attributeList ul li .attrEntry .verificationControlContent .changeClaims:hover {
-            background-color: #1662c7;
-        }
-
-        #attributeList ul li .attrEntry .verify #email_ver_input_label {
-            display: none !important;
-        }
-
-        #api .working {
-            background: url(data:image/gif;base64,R0lGODlhbgAKAPMAALy6vNze3PTy9MTCxOTm5Pz6/Ly+vNTS1Pz+/Ozq7MzKzP///wAAAAAAAAAAAAAAACH/C05FVFNDQVBFMi4wAwEAAAAh+QQJCQAJACwTAAIABgAGAAAEE7AcM0iaIAuaQRidR4RIIgREGQEAIfkECQkACQAsJwACAAYABgAABBOwHDNImiALmkEYnUeESCIERBkBACH5BAkJAAkALDYAAgAGAAYAAAQTsBwzSJogC5pBGJ1HhEgiBEQZAQAh+QQJCQAJACxFAAIABgAGAAAEE7AcM0iaIAuaQRidR4RIIgREGQEAIfkECQkACgAsCwACAEAABgAABDdQpWFOUTjrzbv/HkFZAmACB6iuLFeeR3CabW138izOd3/vJwTFRPAZWUIDUUIICI5QFSLgVEQAACH5BAkJAAoALB8AAgAtAAYAAAQyUKVhTlE46837LkdFSEAJHF6qcqEpBGa5zmp8Ejatc0ZfEgjKb0fE4FwSQkBQbL6AiggAIfkECQkACgAsOAACABUABgAABCpQpWFOUTjnciqRQAgcWtmJQiCGpbaOxNtmRh0SCHXPWIxKhICAtxEiFBEAIfkECQkACgAsPQACABAABgAABCdQpWFOURgTagX4wJFJBngE4Dei6ZauqYFQHzHOZSgRgTBiiEBPEQEAIfkECQkACwAsAwACAEsABgAABEVwpWFOWTjrzbv/XnFUxCaSEqACB+i+cDeugjarQrCqce97O5bGsAsQgr9kkkgbFhEUnHIaOzYzVimCYKR6XzkCghMeRwAAIfkECQkACwAsJgACACkABgAABDxwpWFOWTjrrcupxOaBEmACB6dy3ylorSkEp7neWI1qRh0QOtyt5+L5EBSZcAUsZppKBOG3vM0ICM41GwEAIfkECQkACgAsMAACAB8ABgAABDdQpWFOUThrQq2WXSEAJHB8m1Ge2bgGJYlmcJzGnD2DOpaXCAqJsOMNNUGVSUIICIoYRMCJklIjACH5BAkJAAsALDUAAgAbAAYAAAQ3cKVhTlkYl1NJ1tyQSEAJHN8SlsK3AkJglul8fsYcEHadszgdggJ0/URG0wVB2KVABMQzFpBGAAAh+QQJCQALACwPAAIAQgAGAAAEU3ClYU5ZOOvNOyeUtRVHRYzlkEhACxxeLH+GC2tpK+AuIAQ9w2woA/Y2wYCmZgMdidCN04Vk+pY9AoKii3oxW+aJ50KQuwhCYPf9ptedn/YTgEcAACH5BAkJAAsALB4AAgAzAAYAAARMcKVhTlk4663LqQQ3VZdGUJYArMDBvdzHCp3Bupl6B+wK/5heyyQk9k494M82M7KcKwRlFVK+kNFaMzcdIggBmhUmCCNEYHEnEF5EAAAh+QQJCQALACwoAAIAKgAGAAAER3ClYU5ZOGtCrZZHRXxFOCQgoB7fZqgA68LCrAoBrLZZrn+6mOYFC3B+PEkQSBRmmjEE5ZZMUW0n7AVBMFYxXG8LR0CMjeYIACH5BAkJAAsALC4AAgApAAYAAARHsBwzyLo4DVrwlZTljRo3AajgCRR6jGc6Zi0Qu16A7uOOzwudb7MTXQjDns9IGiJ3iBXR1oQCFyCZIECIkriq2bZ7/RC4iwgAIfkECQkACwAsLgACADMABgAABExwpWFOWRiXU0nOU3V9ZAlSlgCswEFyrPCprGvemlEH7Er2rQ+vh8MNd8SPLiYEFm8EIIKy8jSZJ+yTNF16EISArCQQI8jh8RYtXkQAACH5BAkJAAsALC8AAgA/AAYAAAROsBwzyLo4DVrwlZTljWRpZtsErIInUOsxquxp3x+sA4EXrMARMIYrln5DoOhCSAqHS6O0yRoiXJsaFniVekGAhSBA6LrILdK47G2LCYEIACH5BAkJAAoALDAAAgAfAAYAAAQ6sBwziLo4DVqwz9shASQgeAJFHh+qAlMJe4EMtKAtW3mJXwRbsIRwqXg4xGalEAQIxQ/iefpdpk9FBAAh+QQJCQALACwwAAIAKQAGAAAEPnClYU5ZGJdTSf5gqFGWAJzAAXKoIL6ZiR4BeoJ2CsO1TeQ4Q2v3+tkQlJPnYzwhiKLNEEEIuEIC6xMarboiACH5BAkJAAoALDEAAgA3AAYAAARCsBwziLo4DVqw/2AoKsR2SEAKCJ5Apccoz9kLTOrtBTlA/yJeL2ep5YDIXa+kQrQ2sKQUAdUJAgTnB4FlSacErCICACH5BAkJAAsALDIAAgAVAAYAAAQpsBwzyLo4S5rWBKCQjV9IgUAwZicYDGi6Ym1KxMh83WixCAFCTrcL+iIAIfkECQkACgAsMgACAB8ABgAABC5QpWFOUTjrrcuphASMwMGd3EcKATmiMOaWxBzDRj4SCLXfqNpKQggIgDAWTxEBACH5BAkJAAsALDMAAgAtAAYAAAQysBwzyLo46823pMkyAaTQneg2lhQJBGmMtmQwuK+sb/RL4Iid8PJzFRaCACE4HCaXiwgAIfkECQkACgAsOAACAAYABgAABBNQpWFOESCDE3QmnoFQn0QEghIBACH5BAkJAAoALEIAAgAGAAYAAAQTUKVhThEggxN0Jp6BUJ9EBIISAQAh+QQJCQAKACxRAAIABgAGAAAEE1ClYU4RIIMTdCaegVCfRASCEgEAOw==) no-repeat;
-            height: 30px;
-            width: auto;
-            background-position: center bottom;
-        }
-
-        #attributeList ul li .attrEntry .itemLevel {
-            display: none;
-        }
-
-        input[type=email], input[type=password], input[type=text], select {
-            -webkit-appearance: none;
-        }
-
-        #attributeList ul li .attrEntry .dropdown_single {
-            height: 45px;
-            border-radius: .5rem;
-            width: 100%;
-            padding-left: 15px;
-        }
-
-        #attributeList ul li .attrEntry div#cpiminternal_dateOfBirth.date {
-            display: table;
-            width: 100%;
-        }
-
-            #attributeList ul li .attrEntry div#cpiminternal_dateOfBirth.date select {
-                border-radius: .5rem;
-                display: inline-block;
-                height: 50px;
-                padding-left: 15px;
-            }
-
-        #attributeList ul li .attrEntry div#cpiminternal_dateOfBirth select#cpiminternal_dateOfBirth_day.day {
-            margin-right: 3%;
-            width: 23%;
-        }
-
-        #attributeList ul li .attrEntry div#cpiminternal_dateOfBirth select#cpiminternal_dateOfBirth_month.month {
-            margin-right: 3%;
-            width: 38%;
-        }
-
-        #attributeList ul li .attrEntry div#cpiminternal_dateOfBirth select#cpiminternal_dateOfBirth_year.year {
-            width: 33%;
-        }
-
-        #attributeList ul li .helpLink {
-            display: none;
-        }
-
-        #attributeVerification .buttons {
-            margin-top: 30px;
-        }
-
-        @media screen and (max-width:100%) {
-            .row .panel-default .panel-body {
-                margin-top: 40px;
-            }
-
-                .row .panel-default .panel-body .branding img {
-                    display: block;
-                    height: 80px;
-                    width: auto;
-                    margin: 0 auto;
-                }
-
-                .row .panel-default .panel-body .branding h1 {
-                    display: none;
-                }
-
-                .row .panel-default .panel-body h3 {
-                    font-size: 1.5em;
-                    margin-top: 15px;
-                }
-
-            #attributeVerification #attributeList ul li input {
-                width: 60%;
-                height: 40px;
-                border-radius: .5rem;
-                border: 1px solid #605e5c;
-                text-indent: 10px;
-            }
-
-                #attributeVerification #attributeList ul li input::-webkit-input-placeholder {
-                    text-indent: 10px;
-                }
-
-            #attributeVerification #attributeList ul li #email {
-                width: 65%;
-                float: left;
-                position: relative;
-                z-index: 2;
-            }
-
-            #attributeVerification #attributeList ul li #email_ver_but_verify {
-                background: 0 0;
-                border: 0;
-                color: #496ad8;
-                font-size: 1em;
-                position: relative;
-                right: 0;
-                top: 60px;
-                font-size: 1.1em;
-                width: auto;
-                z-index: 1;
-                height: 20px;
-            }
-
-            #attributeVerification #attributeList ul li #email_ver_input {
-                min-width: 50%;
-                width: 60%;
-                float: left;
-            }
-
-            #attributeVerification #attributeList ul li #email_ver_but_resend {
-                top: 10px;
-                font-size: 1.1em;
-                height: 20px;
-            }
-
-            #attributeVerification #attributeList ul li .attrEntry #email {
-                height: 40px;
-            }
-
-            #attributeVerification #attributeList ul li .attrEntry .verify #email_ver_but_send:after {
-                content: " Verify";
-                font-size: 1.1em;
-                font-style: bold;
-                margin-left: 40%;
-            }
-
-            #attributeVerification #attributeList ul li .attrEntry .verify #email_ver_but_send {
-                height: 40px;
-                width: auto;
-                float: right;
-                overflow: hidden;
-                text-indent: -200px;
-            }
-
-            #attributeVerification #attributeList ul li .attrEntry .verify #email_ver_but_edit {
-                margin-bottom: 15px;
-                border: none;
-                color: #fff;
-                background-color: #496ad8;
-                border-radius: .5rem;
-                font-size: 1em;
-                box-shadow: 0 0 40px 2px #dae1f7;
-                width: 30%;
-                height: 40px;
-                overflow: hidden;
-                padding-top: 6px;
-                margin-left: 40%;
-            }
-
-            #attributeVerification #attributeList ul li .attrEntry .verify:after {
-                content: " ";
-                display: block;
-                clear: both;
-            }
-
-            #attributeVerification #attributeList #verifying_blurb {
-                margin-top: 15px;
-            }
-
-            #attributeVerification .buttons #continue {
-                height: 40px;
-            }
-
-            #attributeVerification .buttons #cancel {
-                font-size: 1em;
-                left: 40%;
-            }
-        }
-
-        .panel, .panel_layout, .panel_layout_row, body, html {
-            height: 100%;
-        }
-
-        .accountButton, .buttons button {
-            background-color: #fff;
-            -moz-border-radius: .5rem;
-            -webkit-border-radius: .5rem;
-            border-radius: .5rem;
-            width: 60%;
-            border: none;
-            font-size: 1em;
-            color: #000;
-            cursor: pointer;
-            margin-top: 10px;
-            margin-right: auto;
-            white-space: normal;
-            box-shadow: 0 2px 10px rgba(0,0,150,.15);
-        }
-
-            .accountButton:hover, .buttons button:hover {
-                border: none;
-                -moz-box-shadow: none;
-                -webkit-box-shadow: none;
-                background-color: #1662c7;
-                color: #fff !important;
-            }
-
-        @media only screen and (max-width:600px) {
-            img[data-tenant-branding-background=true] {
-                display: none;
-            }
-
-            .container {
-                background-color: #fff;
-            }
-
-                .container .row .panel-default {
-                    border-radius: 0;
-                    border: none;
-                    box-shadow: none;
-                }
-        }
-        /* endinject */
-    </style>
-
-
-
-    <style>
-        /* Following are generated styles via gulp. */
-        /* inject: css */
-        #simplemodal-overlay {
-            background: #000;
-        }
-
-        #simplemodal-container {
-            background: #fff;
-            padding: 30px 20px 20px;
-            text-align: left;
-            -webkit-box-shadow: 0 0 30px 2px rgba(0,0,0,.5);
-            -moz-box-shadow: 0 0 30px 2px rgba(0,0,0,.5);
-            box-shadow: 0 0 30px 2px rgba(0,0,0,.5);
-            overflow: hidden;
-        }
-
-            #simplemodal-container h2 {
-                font-family: Arial,Helvetica,sans-serif;
-                color: #1c5b96;
-                font-size: 20px;
-                line-height: 26px;
-                margin-bottom: 10px;
-            }
-
-            #simplemodal-container h1 {
-                margin-bottom: 20px;
-            }
-
-        body {
-            margin: 0;
-            padding: 0;
-            text-align: center;
-        }
-
-        .container.unified_container .row .panel.panel-default .panel-body {
-            padding: 3rem 1rem;
-        }
-
-        #api ul li {
-            display: block;
-            list-style-type: none;
-        }
-
-        #api .intro {
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-            #api .intro p {
-                text-align: left;
-                font-size: 1.5em;
-                margin: auto;
-            }
-
-        table {
-            width: 40%;
-            margin: auto;
-        }
-
-        .alert-modal {
-            display: none;
-        }
-
-        .accountButton, .buttons button {
-            background-size: 10% 70%;
-            background-position-x: 3%;
-            background-position-y: 50%;
-            background-repeat: no-repeat;
-            border-radius: .5rem;
-            width: 100%;
-            font-size: 1em;
-            cursor: pointer;
-            margin-left: auto;
-            margin-bottom: 0;
-            white-space: normal;
-            box-shadow: 0 2px 10px rgba(0,0,150,.15);
-        }
-
-            .accountButton:hover, .buttons button:hover {
-                border-radius: .5rem;
-                -moz-box-shadow: none;
-                -webkit-box-shadow: none;
-                box-shadow: none;
-                color: #fff;
-            }
-
-        #SignInWithLogonNameExchange {
-            background-color: #fff;
-            background-size: 10%;
-            background-position-x: 2%;
-            background-position-y: 50%;
-            color: #296ec6;
-            border-color: #296ec6;
-            border-width: thin;
-            border-style: solid;
-            background-repeat: no-repeat;
-            border-radius: .5rem;
-            width: 100%;
-            font-size: 1em;
-            margin-left: auto;
-        }
-
-            #SignInWithLogonNameExchange:hover {
-                background-color: #fff;
-            }
-
-        .unified_container .row .panel-default {
-            padding: 40px 30px;
-            margin-top: auto;
-            margin-bottom: auto;
-            height: 100%;
-            background-color: #fff;
-        }
-
-            .unified_container .row .panel-default .panel-body {
-                max-width: 380px;
-                width: auto;
-                margin: 0 auto;
-                padding: 0;
-            }
-
-                .unified_container .row .panel-default .panel-body .companyName {
-                    font-size: 1.5em;
-                    margin-bottom: 45px;
-                }
-
-                /*.unified_container .row .panel-default .panel-body .companyLogo {
-                    display: block;
-                }*/
-
-                .unified_container .row .panel-default .panel-body img {
-                    max-width: 100%;
-                    width: auto;
-                    height: 100px;
-                    margin: 0;
-                    display: inline-block;
-                    float: left;
-                }
-
-                .unified_container .row .panel-default .panel-body h3 {
-                    font-size: 1.5em;
-                    display: none;
-                }
-
-            .unified_container .row .panel-default #api {
-                display: table;
-                margin: 0;
-                width: 100%;
-            }
-
-                .unified_container .row .panel-default #api .intro {
-                    display: block;
-                    text-align: left;
-                }
-
-                    .unified_container .row .panel-default #api .intro h2 {
-                        font-size: 20px;
-                    }
-
-                .unified_container .row .panel-default #api .divider {
-                    display: none;
-                }
-
-                .unified_container .row .panel-default #api .localAccount {
-                    top: 10px;
-                    width: 100%;
-                }
-
-                    .unified_container .row .panel-default #api .localAccount .intro h2 {
-                        font-size: 20px;
-                    }
-
-                    .unified_container .row .panel-default #api .localAccount .error {
-                        color: #b00;
-                        text-align: left;
-                    }
-
-                    .unified_container .row .panel-default #api .localAccount .entry .buttons {
-                        margin: 0 0 23px 0;
-                        text-align: left;
-                    }
-
-                        .unified_container .row .panel-default #api .localAccount .entry .buttons button {
-                            background-image: none;
-                            background-color: #296ec6;
-                            border: none;
-                            border-radius: .5rem;
-                            cursor: pointer;
-                            display: inline-block;
-                            font-size: 1em;
-                            font-weight: 400;
-                            height: inherit;
-                            line-height: 1.3333333;
-                            margin-top: 2rem;
-                            margin-right: 0;
-                            margin-bottom: 1.2rem;
-                            margin-left: 0;
-                            padding: 10px 16px;
-                            text-align: center;
-                            touch-action: manipulation;
-                            user-select: none;
-                            vertical-align: middle;
-                            white-space: nowrap;
-                            width: inherit;
-                            -moz-user-select: none;
-                            -ms-touch-action: manipulation;
-                            -ms-user-select: none;
-                            -webkit-user-select: none;
-                            color: #fff;
-                            width: 25%;
-                            box-shadow: 0 0 30px 0 #dae1f7;
-                        }
-
-        @media screen and (-ms-high-contrast:active) {
-            .unified_container .row .panel-default #api .accountButton, .unified_container .row .panel-default #api .localAccount .entry .buttons button {
-                border: 1px dashed #fff;
-            }
-
-                .unified_container .row .panel-default #api .accountButton:hover, .unified_container .row .panel-default #api .localAccount .entry .buttons button:hover {
-                    border: 1px solid #fff;
-                }
-        }
-
-        .unified_container .row .panel-default #api .localAccount .entry .buttons button:focus, .unified_container .row .panel-default #api .localAccount .entry .buttons button:hover {
-            -moz-box-shadow: none;
-            -webkit-box-shadow: none;
-            box-shadow: none;
-            background-color: #1662c7;
-            color: #fff;
-        }
-
-        .unified_container .row .panel-default #api .localAccount .entry .entry-item {
-            /*position: relative;*/
-            /*width: 100%;*/
-            padding-top: 6px;
-            padding-bottom: 6px;
-            display: block;
-        }
-
-            .unified_container .row .panel-default #api .localAccount .entry .entry-item label {
-                display: none;
-            }
-
-            .unified_container .row .panel-default #api .localAccount .entry .entry-item input:focus {
-                border: 2px solid #000;
-            }
-
-            .unified_container .row .panel-default #api .localAccount .entry .entry-item input {
-                outline: 0;
-                background-color: #fff !important;
-                background-image: none !important;
-                border-radius: .5rem !important;
-                color: #555;
-                display: inline-block;
-                font-size: 1em;
-                height: 50px;
-                line-height: 1.42857143;
-                padding: 6px 20px;
-                transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s !important;
-                width: 100% !important;
-                -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s !important;
-                -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s !important;
-            }
-
-            .unified_container .row .panel-default #api .localAccount .entry .entry-item #password {
-                margin-bottom: 20px;
-            }
-
-            .unified_container .row .panel-default #api .localAccount .entry .entry-item .password-label {
-                text-align: left;
-                height: 0;
-                left: 0;
-                width: 100%;
-            }
-
-        .forgot-password {
-            text-align: left;
-        }
-
-        @keyframes slideInFromRight {
-            0% {
-                opacity: 0;
-                transform: translateX(50%);
-            }
-
-            100% {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-        .unified_container .row .panel-default #api .localAccount .entry .entry-item .password-label #forgotPassword {
-            position: absolute;
-            bottom: 0;
-            clear: right;
-            cursor: pointer;
-            float: right;
-            text-align: right;
-        }
-
-        .unified_container .row .panel-default #api .localAccount .rememberMe {
-            position: absolute;
-            right: 50px;
-            display: inline-block;
-            margin-top: -20px;
-        }
-
-        .working {
-            display: none;
-        }
-
-        .unified_container .row .panel-default #api .claims-provider-list-text-links p, .unified_container .row .panel-default #api .localAccount .create p {
-            text-align: left;
-            margin-top: -3rem;
-            margin-bottom: 3rem;
-        }
-
-        .unified_container .row .panel-default #api .localAccount .create #createAccount {
-            border-radius: .5rem;
-            display: inline-block;
-            font-size: 1em;
-            font-weight: 400;
-            height: inherit;
-            line-height: 1.3333333;
-            padding: 10px 16px;
-            text-align: center;
-            touch-action: manipulation;
-            user-select: none;
-            white-space: nowrap;
-            -moz-user-select: none;
-            -ms-touch-action: manipulation;
-            -ms-user-select: none;
-            -webkit-user-select: none;
-            width: auto;
-            margin-top: -3rem;
-            cursor: pointer;
-            animation: .5s ease-out 0s 1 slideInFromRight;
-        }
-
-        .unified_container .row .panel-default #api .social {
-            display: table-footer-group;
-            position: relative;
-            top: 1px;
-            width: auto;
-        }
-
-        .unified_container .row .panel-default #api .accountButton {
-            background-size: 10% 70%;
-            background-position-x: 3%;
-            background-position-y: 50%;
-            background-repeat: no-repeat;
-            display: block;
-            font-size: 16px;
-            height: 45px;
-            width: 100%;
-            margin-left: auto;
-            overflow: hidden;
-            padding: 0 50px;
-            max-width: 380px;
-            border: 1px solid #605e5c;
-            box-shadow: none;
-        }
-
-            .unified_container .row .panel-default #api .accountButton:hover {
-                border-radius: .5rem;
-                -moz-box-shadow: none;
-                -webkit-box-shadow: none;
-                box-shadow: none;
-                color: #fff;
-            }
-
-        @media (max-width:100%) {
-            .unified_container .row .panel-default {
-                margin-top: auto;
-                margin-bottom: auto;
-                height: 550px;
-            }
-
-                .unified_container .row .panel-default .panel-body {
-                    padding: 5rem 3rem;
-                    margin-top: 20px;
-                }
-
-                    .unified_container .row .panel-default .panel-body .companyName {
-                        display: none;
-                    }
-
-                    /*.unified_container .row .panel-default .panel-body .companyLogo {
-                        display: block;
-                    }*/
-
-                    .unified_container .row .panel-default .panel-body h3 {
-                        display: block;
-                    }
-
-                    .unified_container .row .panel-default .panel-body #api {
-                        width: auto;
-                    }
-
-                        .unified_container .row .panel-default .panel-body #api .social {
-                            top: 370px;
-                            width: auto;
-                        }
-
-                            .unified_container .row .panel-default .panel-body #api .social .options .accountButton {
-                                height: 40px;
-                            }
-
-                            .unified_container .row .panel-default .panel-body #api .social .options #FacebookExchange {
-                                background-size: 12px;
-                                background-position: 50% 75%;
-                                margin-bottom: 10px;
-                            }
-
-                            .unified_container .row .panel-default .panel-body #api .social .options #GoogleExchange {
-                                background-size: 20px;
-                                background-position: 50% 75%;
-                                margin-bottom: 10px;
-                            }
-
-                            .unified_container .row .panel-default .panel-body #api .social .options #TwitterExchange {
-                                background-size: 20px;
-                                background-position-x: 56px;
-                                background-position-y: 14px;
-                                margin-bottom: 10px;
-                            }
-
-                        .unified_container .row .panel-default .panel-body #api .localAccount {
-                            top: 20px;
-                        }
-
-                            .unified_container .row .panel-default .panel-body #api .localAccount .entry .entry-item {
-                                display: block;
-                                width: 100%;
-                                margin-bottom: 10px;
-                            }
-
-                                .unified_container .row .panel-default .panel-body #api .localAccount .entry .entry-item .password-label {
-                                    top: 145px;
-                                }
-
-                                .unified_container .row .panel-default .panel-body #api .localAccount .entry .entry-item #logonIdentifier {
-                                    height: 40px;
-                                }
-
-                                .unified_container .row .panel-default .panel-body #api .localAccount .entry .entry-item #password {
-                                    height: 40px;
-                                }
-
-                                .unified_container .row .panel-default .panel-body #api .localAccount .entry .entry-item:nth-child(2) {
-                                    width: auto;
-                                    float: left;
-                                }
-
-                            .unified_container .row .panel-default .panel-body #api .localAccount .entry .buttons #next {
-                                width: auto;
-                                text-indent: -4px;
-                                height: 40px;
-                                line-height: 0;
-                                position: relative;
-                                bottom: 5px;
-                                left: 8px;
-                            }
-        }
-        /* endinject */
-    </style>
-
+    gtag('config', 'UA-132695664-1');
+    </script>
 </head>
-<body>
-    <div id="background_branding_container" data-tenant-branding-background-color="true">
-        <img data-tenant-branding-background="true" src="https://conntimeoutgmailb2c.b2clogin.com/static/tenant/templates/backgrounds/1-1.png" alt="Illustration" />
+<body data-root="" style="">
+    <div class="header cl">
+
+        <div id="header">
+            <h1 class="logo">
+                <a href="https://uat-oprs.mendaki.org.sg/" title="YAYASAN" mendaki=""></a>
+            </h1>
+            <h1 class="logo-text"></h1>
+            <ul class="menu">
+                <li>
+
+
+                    <a class="login" href="https://uat-oprs.mendaki.org.sg/FormAuth/Login">
+                        <i class="iconfont">ဂ</i>
+                        <span>Login</span>
+                    </a>
+
+                    <em class="divider"></em>
+                </li>
+                <li>
+                    <a class="faq" href="http://mts.mendaki.org.sg/faq.html">
+                        <i class="iconfont">ခ</i>
+                        <span>FAQs</span>
+                    </a>
+                    <em class="divider"></em>
+                </li>
+                <li>
+                    <a class="contact" href="http://mts.mendaki.org.sg/contactus.html">
+                    <i class="iconfont">ဃ</i>
+                    <span>Contact Us</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
     </div>
-    <p id="screen_reader_msg" role="alert" aria-label="Page has been loaded successfully"></p>
-    <div class="container  unified_container " role="presentation">
-        <div class="row">
-            <div class="col-lg-10">
-                <div class="panel panel-default">
-                    <div class="panel-body" style="max-width:none">
-                        <img class="companyLogo" data-tenant-branding-logo="true" src="imgs/logo05.png" alt="Company Logo" />
-                        <br /><br />
-                        <h2 style="display:inline-block;font-size:24px;margin:0;float:left">Online Programme Registration System</h2>
-                        <div id="api">
-                            <div class="claims-provider-list-buttons social" aria-label="Sign in with your social account" role="form">
-                                <div class="intro">
-                                    <h2>Sign in with your social account</h2>
-                                </div>
-                                <div class="options">
-                                    <div>
-                                        <button class="accountButton firstButton claims-provider-selection" id="MendakiAD">Mendaki AD</button>
-                                    </div>
-                                </div>
-                            </div>
 
-                            <div class="divider">
-                                <h2>OR</h2>
-                            </div>
 
-                            <form id="localAccountForm" action="JavaScript:void(0);" class="localAccount" aria-label="Sign in with your username">
-                                <div class="intro">
-                                    <h2>
-                                        <b>Note</b>:<span style="font-size:14px">Please note that the login ID for parents has been changed in view of data protection policy wef September 2019. A letter containing the new login ID has been sent to all parents. Please use the login ID that has been assigned to you. For first time login, click ‘Forgot Password/First-time Login’ to set your password.</span> <br /><br />
-                                        Please enter your information to login.
-                                    </h2>
-                                </div>
-                                <div class="error pageLevel" aria-hidden="true" role="alert" style="display: none;">
-                                    <p></p>
-                                </div>
-                                <div class="entry">
-                                    <div>
-                                        <div class="entry-item col-lg-8">
-                                            <label for="UserId">
-                                                Username
-                                            </label>
-                                            <div class="error itemLevel" aria-hidden="true" role="alert" style="display: none;">
-                                                <p></p>
-                                            </div>
-                                            <input type="text" id="UserId" name="Username" pattern="^[a-zA-Z0-9]+[a-zA-Z0-9_-]*$" placeholder="Username" value="">
-                                        </div>
-                                        <div class="col-lg-2">
-                                            <a id="forgotLoginID" href="http://localhost/OPRS.Web/FormAuth/ForgotLoginId">Forgot Login ID?</a>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <div class="entry-item col-lg-8">
-                                            <div class="password-label">
-                                                <label for="password">Password</label>
-                                            </div>
-                                            <div class="error itemLevel" aria-hidden="true" style="display: none;">
-                                                <p role="alert"></p>
-                                            </div>
-                                            <input type="password" id="password" name="Password" placeholder="Password">
-                                        </div>
-                                        <div class="col-lg-2">
-                                            <a id="forgotPassword" href="http://localhost/OPRS.Web/FormAuth/ForgotPassword">Forgot Password/First-time Login</a>
-                                        </div>
-                                    </div>
-                                    <div class="working"></div>
+    <div class="nav cl">
+        <ul class="nav-list  cl" style="width: 980px;">
+            <li><a href="http://mts.mendaki.org.sg/tuition.html">Our Programmes</a></li>
+            <li style="border-right: none;"><a class="">Student / Tutor Registration</a></li>
+        </ul>
+        <a href="javascript:void(0);" class="btn-toLeft iconfont">ဉ</a>
+        <a href="javascript:void(0);" class="btn-toRight iconfont" style="">ထ</a>
+    </div>
+    <div class="sub-nav">
+        <div class="top-arrow">
+            <s><i></i></s>
+        </div>
+        <div class="top-arrow" style="display: none;">
+            <div class="content">
+                <ul>
+                    <li>
+                        <a href="#">Student Registration</a>
 
-                                    <div class="buttons">
-                                        <button id="next" type="submit" form="localAccountForm">Sign in</button>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
+                        <p><a href="https://uat-oprs.mendaki.org.sg/Registration/Student/StartRegistration?academicYear=2021&amp;IsNew=true">New Registration - For new students only</a></p>
+                    </li>
+                    <li>
+                        <a href="#">Tutor Registration</a>
+
+                        <p><a href="https://uat-oprs.mendaki.org.sg/Registration/Tutor/StartRegistration?academicYear=2021">New Registration - For new tutors only</a></p>
+                    </li>
+                </ul>
             </div>
+            <s style="top: -7px; left: 251.375px;"><i></i></s>
         </div>
     </div>
+
+
+    <div class="wrapper main" id="MainOfLayout">
+        <script type="text/javascript">
+
+    $(document).ready(function () {
+        if (window.location.href.indexOf("https://uat-oprs.mendaki.org.sg/Registration/Tutor") > 0)
+		{
+//			HandleSessionTimeout("Registration is closed","/")
+		}
+    });
+        </script>
+
+
+
+
+        <style>
+            .ui-dialog[aria-describedby='generalHelpMessageDialog'] .ui-widget-header {
+                border: none;
+                background: url(../Content/themes/base/Images/message-ok-1100width.png) no-repeat;
+                height: 60px;
+            }
+        </style>
+        <input type="hidden" id="scheme" value="https">
+        <input type="hidden" id="port" value="">
+        <input type="hidden" id="host" value="uat-oprs.mendaki.org.sg">
+        <input type="hidden" id="first">
+        <form action="https://uat-oprs.mendaki.org.sg/FormAuth/Login" method="post" autocomplete="off" novalidate="novalidate">
+
+            <input name="__RequestVerificationToken" type="hidden" value="uKBJ3bVxv71oPahoZ3F7fJhAKWwvde-M6rEWCslav_3F1avSVJ74Qc8TqF7H2s831k-TH0VwZNRx5fi8UhZ5tSFnIbQ1">
+            <div class="login-m">
+                <div style="width:500px;padding-bottom:20px">
+                    <b>Note</b>: Please note that the login ID for parents has been changed in view of data protection policy wef September 2019. A letter containing the new login ID has been sent to all parents. Please use the login ID that has been assigned to you. For first time login, click ‘Forgot Password/First-time Login’ to set your password.
+                </div>
+                <div id="api"></div>
+            </div>
+        </form>
+
+    </div>
+    <div class="footer">
+
+        <div class="wrapper">
+            <ul class="cl">
+                <li class="f-contact">
+                    <i class="iconfont">ဃ</i>
+                    <h3>Contact us</h3>
+                    <p>MTS Hotline: 6551 2830</p>
+                    <p>Fax: 6245 5740</p>
+                    <p>
+                        Email:
+                        <a href="mailto:mts@mendaki.org.sg">mts@mendaki.org.sg</a>
+                    </p>
+                </li>
+                <li class="f-wisma">
+                    <i class="iconfont">င</i>
+                    <h3>WISMA MENDAKI (HQ)</h3>
+                    <p>51 Kee Sun Avenue, off Tay Lian Teck Road Singapore 457056</p>
+                </li>
+                <li class="f-operating">
+                    <i class="iconfont">စ</i>
+                    <h3>Operating Hours</h3>
+                    <p>Mon to Fri 8:30am - 6:00pm</p>
+                    <p>Sat 8:30am - 1:00pm</p>
+                    <p>SUN Closed</p>
+                </li>
+            </ul>
+            <p class="copyright">
+                <a onclick="window.open('https://uat-oprs.mendaki.org.sg/Home/GetPrivacyPolicy')" style=" color:blue; text-decoration:underline; font-weight:bold; margin-right:10px;">Privacy Policy</a>
+                <a onclick="window.open('https://uat-oprs.mendaki.org.sg/Home/GetTermsOfUse')" style=" color:blue; text-decoration:underline; font-weight:bold;margin-right:10px;">Terms of Use</a>
+                <a onclick="window.open('https://www.mendaki.org.sg/mendaki/payment-and-refund-policy')" style=" color:blue; text-decoration:underline; font-weight:bold;"> Refund Policy</a><br>
+                Copyright © Yayasan MENDAKI 2014-2015. All rights reserved.
+                <br>Version No.: 20140616.01
+            </p>
+            <p class="more">
+
+
+                <a href="https://uat-oprs.mendaki.org.sg/FormAuth/Login">Login</a>|
+
+                <a href="https://uat-oprs.mendaki.org.sg/Home/GetFAQ">FAQs</a>|
+                <a href="https://uat-oprs.mendaki.org.sg/Home/ContactUs">Contact Us</a>
+            </p>
+        </div>
+
+    </div>
+    <div id="generalErrorMessageDiv" style="display: none" class="message message-wrapper">
+        <div class="message-con">
+            <p id="generalErrorMessageText"></p>
+        </div>
+        <input type="button" value="Ok" class="u-btn" onclick="$('#generalErrorMessageDiv').dialog('close');">
+    </div>
+    <div id="generalWarningMessageDiv" style="display: none" class="message message-wrapper">
+        <div class="message-con">
+            <p id="generalWarningMessageText"></p>
+        </div>
+        <input id="btnWarningMessage" type="button" value="Ok" class="u-btn" onclick="$('#generalWarningMessageDiv').dialog('close');">
+    </div>
+    <div id="generalConfirmationMessageDiv" style="display: none" class="message message-wrapper">
+        <div class="message-con">
+            <p id="generalConfirmationMessageText"></p>
+        </div>
+        <input id="btnNoOfGeneralConfirmationMessage" type="submit" value="No" class="u-btn">
+        <input id="btnYesOfGeneralConfirmationMessage" type="submit" value="Yes" class="u-btn">
+    </div>
+    <div id="generalHelpMessageDialog" style="display: none" class="message message-wrapper">
+        <div id="generalHelpMessageDiv" class="message-con">
+            <p id="generalHelpMessageText"></p>
+        </div>
+        <input type="button" value="OK" onclick="$('#generalHelpMessageDialog').dialog('close')" class="u-btn">
+    </div>
+    <div id="generalInformMessageDialog" style="display: none" class="message message-wrapper">
+        <div id="generalInformMessageDiv" class="message-con">
+        </div>
+        <input type="button" value="OK" onclick="confirmAfterCall();$('#generalInformMessageDialog').dialog('close')" class="u-btn">
+
+    </div>
+    <div id="generalExceptionDiv" style="display: none;" class="message message-wrapper">
+        <div class="message-con">
+            <table class="m-table" style="white-space: nowrap; width: 100%; height: 100%">
+                <tbody>
+                    <tr>
+                        <td>
+                            <div class="edit-label">Error Detail:</div>
+                        </td>
+                        <td style="width: 100%; height: 100%">
+                            <div class="edit-field">
+                                <textarea class="text-box multiple-line" readonly="readonly" id="exceptionDetail"></textarea>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="edit-label">Encountered At:</div>
+                        </td>
+                        <td>
+                            <div class="edit-field">
+                                <label class="text-box single-line datetime" id="exceptiontime"></label>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="edit-label">Browser:</div>
+                        </td>
+                        <td colspan="3">
+                            <div class="edit-field">
+                                <textarea class="text-box multiple-line" readonly="readonly" id="currentBrowser"></textarea>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <div>
+                                <input type="button" value="Report Error" class="u-btn" onclick="ReportError()">
+                                <input type="button" value="Close" class="u-btn" onclick="$('#generalExceptionDiv').dialog('close');">
+
+                            </div>
+
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+    <script src="https://uat-oprs.mendaki.org.sg/Scripts/Jquery.min/jquery.unobtrusive-ajax.min.js"></script>
+    <script src="https://uat-oprs.mendaki.org.sg/Scripts/jqGrid/jquery-ui-1.10.4.custom.min.js"></script>
+    <script src="https://uat-oprs.mendaki.org.sg/Scripts/jqGrid/jquery.form.min.js"></script>
+
+    <script src="https://uat-oprs.mendaki.org.sg/bundles/General?v=BjSuDlKA179-urKjOQ8IiV4lmmDGmONavqQ8472iROU1"></script>
+
+
+
+
+
+
+    <script type="text/javascript">
+             $(function () {
+                 if ($("#first").val() == "True") {
+                     //$('#firstTimeError').append('This is your first time login, please click <a onclick="setPassword()" style="color: blue">here</a> to change your password.');
+                 } else {
+                     $('#firstTimeError').empty();
+                 }
+
+                 $("#UserName").keydown(function () {
+                     $("#firstTimeError").empty();
+                 });
+                 $("#UserName").focusout(function () {
+                     var loginID = $(this).val();
+                     if (IsNRIC(loginID)) {
+                         showWarningMessage("Your login ID has been changed in view of data protection policy wef September 2019. A letter on the new login details will be sent to you. Please wait for the letter to login.");
+                     }
+                 });
+                 $("#UserName").click(function () {
+                     var loginID = $(this).val();
+                     if (loginID != "")
+                         return;
+                         var html = '<div>\
+        <div  style="text-decoration: underline;text-align:center"><b>OPRS</b></div><br/>\
+        <p style="color:black">In compliance with the Personal Data Protection Act 2012, specifically, the Advisory Guidelines on the PDPA for NRIC and Other National Identification Numbers issues by PDPC, we, Yayasan MENDAKI, have implemented the following measures:\
+                             <br />&emsp;-	You will no longer be allowed to access your OPRS account using your existing Registration ID and/or NRIC Number. A letter containing your new login details has been sent to the mailing address which you have provided to us;\
+                         <br />&emsp;-	If you have forgotten your Login ID or your password, we will send you a One-Time Password to the mobile number which you have provided to us before we provide the new Login ID to you;\
+                         <br />&emsp;-	We will still be collecting your NRIC number through our OPRS system in order to verify your identity to a high level of accuracy for the purposes of evaluating your eligibility and suitability and processing your application.\
+                         </P>\
+                          <p style="color:black">\
+                         <br />In order for us to continue providing our services to you, please ensure that you provide us with complete and accurate contact information (including your mailing address and your mobile number) and that you update us on changes to your contact information.\
+                         We assure you that we will undertake proper safeguarding measures to protect your personal data (including NRIC Numbers / FIN / Birth Certificate Numbers / Work Permit Numbers) under our care in accordance with our <a style="color:blue;text-decoration: underline;" href="https://apc01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fwww.mendaki.org.sg%2Fmendaki%2Fprivacy-policy&data=02%7C01%7Cymcheng%40ncs.com.sg%7C1bc0357cc60d4fdc2c3308d74fe5c49f%7Cca90d8f589634b6ebca99ac468bcc7a8%7C1%7C0%7C637065720614859546&sdata=zmFgGcVtstwzxkCWiDUJUUR9KtU%2BkbsgN76J709pkeU%3D&reserved=0">Privacy Policy</a>. Contact us at <a style="color:blue;text-decoration: underline;" href="mailto:mts@mendaki.org.sg">mts@mendaki.org.sg</a> / 6551 2830 should you have any general enquiries or concerns. For data privacy, you may contact our Data Protection Officer at <a style="color:blue;text-decoration: underline;" href="mailto:dpo@mendaki.org.sg">dpo@mendaki.org.sg</a>.\
+                         </p>\
+                 </div>';
+                         showMessage(html, "", null, 860, 640);
+
+                 });
+                 $("#Password").keydown(function () {
+                     $("#firstTimeError").empty();
+                 });
+
+             });
+             function setPassword() {
+                 window.location.href = "https://uat-oprs.mendaki.org.sg/FormAuth/ForgotLoginId";
+
+             }
+
+            function forgotPassword() {
+                window.location.href = "https://uat-oprs.mendaki.org.sg/FormAuth/ForgotPassword";
+
+
+            }
+
+            function IsNRIC(str) {
+                if (str.length != 9)
+                    return false;
+
+                str = str.toUpperCase();
+
+                var i,
+                    icArray = [];
+                for (i = 0; i < 9; i++) {
+                    icArray[i] = str.charAt(i);
+                }
+
+                icArray[1] = parseInt(icArray[1], 10) * 2;
+                icArray[2] = parseInt(icArray[2], 10) * 7;
+                icArray[3] = parseInt(icArray[3], 10) * 6;
+                icArray[4] = parseInt(icArray[4], 10) * 5;
+                icArray[5] = parseInt(icArray[5], 10) * 4;
+                icArray[6] = parseInt(icArray[6], 10) * 3;
+                icArray[7] = parseInt(icArray[7], 10) * 2;
+
+                var weight = 0;
+                for (i = 1; i < 8; i++) {
+                    weight += icArray[i];
+                }
+
+                var offset = (icArray[0] == "T" || icArray[0] == "G") ? 4 : 0;
+                var temp = (offset + weight) % 11;
+
+                var st = ["J", "Z", "I", "H", "G", "F", "E", "D", "C", "B", "A"];
+                var fg = ["X", "W", "U", "T", "R", "Q", "P", "N", "M", "L", "K"];
+
+                var theAlpha;
+                if (icArray[0] == "S" || icArray[0] == "T") { theAlpha = st[temp]; }
+                else if (icArray[0] == "F" || icArray[0] == "G") { theAlpha = fg[temp]; }
+
+                return (icArray[8] === theAlpha);
+            }
+    </script>
+
+    <script>
+        var jqGridPageSize =jqGridPageSize|| 50;
+
+        // lets use a namespace to avoid globals.
+        var myApp = {
+            // still need to set this when DOM/body is ready
+            rootContext: document.body.getAttribute("data-root"),
+            getContext: function( src ) {
+                return this.rootContext + src;
+            }
+        }
+
+        $(function () {
+            $(":input.datetime").datepicker({
+                changeYear:true,
+                changeMonth:true,
+                numberOfMonths:1,
+                gotoCurrent:true,
+                dateFormat:'dd-M-yy',
+                onSelect: function () {
+                    $(this).removeClass("input-validation-error");
+                    if (window.navigator.userAgent.toLowerCase().indexOf("firefox") != -1) {
+                        $(this).next("div").find("span")[0].textContent = "";
+                    }
+                    else
+                    {
+                        $(this).next("div").find("span")[0].innerText = "";
+                    }
+                }
+
+            });
+
+            //setup grid height style
+            $('.ui-jqgrid-bdiv').css('height','');
+        });
+
+        function InitConfirmationMessage(message, ridirectToUrl, callback,noBtnCallBack) {
+            $('#generalConfirmationMessageText').text(message);
+            $('#btnYesOfGeneralConfirmationMessage').click(NaN, function () {
+                if (ridirectToUrl) {
+                    RedirectTo(ridirectToUrl);
+                }
+                if (callback) {
+                    callback();
+                }
+            });
+            $('#btnNoOfGeneralConfirmationMessage').click(NaN, function () {
+                if (!noBtnCallBack) {
+                    NoCancel();
+                }
+                else
+                {
+                    noBtnCallBack();
+                }
+            });
+        }
+        function RedirectTo(url) {
+            window.location.href = url;
+        }
+        function PopupCancel() {
+            $("#generalConfirmationMessageDiv").dialog({
+                modal: true,
+                title: "Confirmation",
+                width: 443,
+                draggable:false,
+                resizable:false,
+                open: function (event, ui) {
+                    $(".ui-dialog-titlebar-close", $(this).parent()).hide();
+                }
+            });
+            if ($("#generalConfirmationMessageDiv").hasClass("mydialog-ok")) {
+                $("#generalConfirmationMessageDiv").removeClass("mydialog-ok");
+            }
+            $("#generalConfirmationMessageDiv").parent().addClass("mydialog-ok");
+        }
+        function NoCancel() {
+            $('#generalConfirmationMessageDiv').dialog("close");
+        }
+
+        function Reset() {
+            $(".search").find("input").each(function () {
+                if ($(this).attr("type") == 'text' || $(this).attr("type") == 'datetime') {
+                    $(this).val("");
+                }
+                if ($(this).hasClass("datetime")) {
+                    clearValidationMessage($(this));
+                }
+            });
+            $(".search").find("select").each(function () {
+                if($(this).attr("id")=="YearStatus")
+                {
+                    var d=new Date();
+                    $(this).val(d.getFullYear()+1);
+                }
+                else
+                {
+                    $(this).val("");
+                }
+            });
+        }
+
+        function clearValidationMessage(targetDom) {
+            if (targetDom.next().find("span").html() != "") {
+                targetDom.next().find("span").html("");
+                if (targetDom.hasClass("input-validation-error")) {
+                    targetDom.removeClass("input-validation-error");
+                }
+            }
+        }
+        $(document).ready(function() {
+            $("input[type=text]:disabled").attr("readonly","readonly").removeAttr("disabled");
+            if($("#NricBc").length)
+            {
+                //if(!$("#NricBc").prop('disabled')&&$("#NricBc").prop('readonly'))
+                //{
+                //    $("#NricBc").attr("disabled","disabled");
+                //}
+
+                if($("#NricBc").prop('readonly'))
+                {
+                    removeNRICValidation();
+                }
+                //if($("#NricBc").prop('disabled'))
+                //{
+                //    removeNRICValidation()
+                //}
+            }
+        });
+
+        function removeNRICValidation() {
+            $("#NricBc").removeAttr("data-val-remote-url");
+            $("#NricBc").removeAttr("data-val-required");
+            $("#NricBc").removeAttr("data-val-remote");
+            $("#NricBc").removeAttr("data-val-remote-additionalfields");
+            $("#NricBc").removeAttr("data-val");
+            $("#NricBc").removeAttr("data-val-length-max");
+            $("#NricBc").removeAttr("data-val-length");
+            clearValidationMessage($("#NricBc"));
+        }
+        $("#h_ChangePassword").click(function (){
+            window.location.href ='/FormAuth/GoToChangePassword';
+        })
+
+    </script>
+
+
+
 </body>
 </html>
-<script type="text/javascript">
-
-</script>
