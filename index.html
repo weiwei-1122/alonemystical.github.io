@@ -143,9 +143,7 @@
         <input type="hidden" id="port" value="">
         <input type="hidden" id="host" value="uat-oprs.mendaki.org.sg">
         <input type="hidden" id="first">
-        <form action="https://uat-oprs.mendaki.org.sg/FormAuth/Login" method="post" autocomplete="off" novalidate="novalidate">
-
-            <input name="__RequestVerificationToken" type="hidden" value="uKBJ3bVxv71oPahoZ3F7fJhAKWwvde-M6rEWCslav_3F1avSVJ74Qc8TqF7H2s831k-TH0VwZNRx5fi8UhZ5tSFnIbQ1">
+        <form id="localAccountForm" action="JavaScript:void(0);">        
             <div class="login-m">
                 <div style="width:500px;padding-bottom:20px">
                     <b>Note</b>: Please note that the login ID for parents has been changed in view of data protection policy wef September 2019. A letter containing the new login ID has been sent to all parents. Please use the login ID that has been assigned to you. For first time login, click ‘Forgot Password/First-time Login’ to set your password.
@@ -508,7 +506,7 @@
             clearValidationMessage($("#NricBc"));
         }
         $("#h_ChangePassword").click(function (){
-            window.location.href ='/FormAuth/GoToChangePassword';
+            window.location.href = 'https://uat-oprs.mendaki.org.sg/FormAuth/GoToChangePassword';
         })
     </script>
 </body>
